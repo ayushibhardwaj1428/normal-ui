@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    margin: 20px;
+   
+    border-radius: 7px;
+    background-color: #fafafa;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+.imageContainer{
+    height: 100%;
+    margin: 13px;
+    align-items: center;
+}
+.imageContainer img{
+    border-radius: 50%;
+}
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name{
+    padding: 4px 0px;
+    font-weight: bold;
+    font-style: italic;
+}
+.email{
+    padding: 0px 0px 4px 0px;
+}

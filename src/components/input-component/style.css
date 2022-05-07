@@ -1,0 +1,45 @@
+.supermainContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #fafafa;
+}
+.uiarea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.headerText {
+  background-color: #fafafa;
+  text-align: center;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0px;
+}
+.cardUi {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.contactText {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.textValue {
+  margin: 10px 0px;
+  border: 1px solid #000;
+}
+.submitButton {
+  height: 34px;
+  font-size: 17px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2px;
+  margin: 20px 0px;
+}
