@@ -13,10 +13,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+ 
 }
 .headerText {
   background-color: #fafafa;
   text-align: center;
+  /* margin-left: 160px; */
   font-size: 22px;
   line-height: 26px;
   font-weight: 500;
@@ -25,7 +27,13 @@
 }
 .cardUi {
   background-color: rgba(0, 0, 0, 0.1);
-  overflow: scroll;
+  background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-s73-ted-9997-01-mockup_2.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d5e4553607937bc61364ae6375fef126");
+  background-repeat: no-repeat;
+  background-size: 420px 600px;
+  background-position: center;
+  height: 500px;
+  /* width: 400px; */
+  /* overflow: scroll; */
 }
 .contactText {
   font-size: 17px;

@@ -69,7 +69,11 @@ export default function InputComponent() {
       <div className="uiarea">
         <div className="headerText">Contacts</div>
         <div className="cardUi">
-          {elem}
+          <div
+            style={{ height: "465px", overflow: "scroll", margin: "0px 15px 25px 10px" }}
+          >
+            {elem}
+          </div>
         </div>
       </div>
     </div>
