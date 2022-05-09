@@ -25,6 +25,7 @@
 }
 .cardUi {
   background-color: rgba(0, 0, 0, 0.1);
+  overflow: scroll;
 }
 .contactText {
   font-size: 17px;

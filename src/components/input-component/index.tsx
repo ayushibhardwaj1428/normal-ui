@@ -13,7 +13,7 @@ export default function InputComponent() {
   const [result, setResult] = useState<props[]>([]); // to store the objects in the format which we want
   const [contactLength, setContactLength] = useState(0); // to set the contact at time of input
   const [realContactLength, setRealContactLength] = useState(0); // to show the contact length which we want
-
+  const [cardContainerHeight, setcardContainerHeight] = useState(0);
   const handleChange = (e: any) => {
     setContactLength(e.target.value);
   };
@@ -29,7 +29,8 @@ export default function InputComponent() {
   }, []);
 
   function handleSubmit() {
-    setRealContactLength(contactLength);
+    setRealContactLength(resultLength);
+    setcardContainerHeight((140 * contactLength)+45);
   }
 
   for (let i = 0; i < realContactLength; i++) {
@@ -66,8 +67,13 @@ export default function InputComponent() {
           Submit
         </button>
       </div>
-      
-      <div className="uiarea"><div className="headerText">Contacts</div><div className="cardUi">{elem}</div></div>
+
+      <div className="uiarea">
+        <div className="headerText">Contacts</div>
+        <div className="cardUi" style={{ height: `${cardContainerHeight}px` }}>
+          {elem}
+        </div>
+      </div>
     </div>
   );
 }
