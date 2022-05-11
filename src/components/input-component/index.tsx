@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RectangualarCard from "../rectangular-card";
 import "./style.css";
 
@@ -8,44 +8,41 @@ interface props {
   picture: { medium: string };
 }
 export default function InputComponent() {
-  const url = "https://randomuser.me/api/?results=50";
-  const [resultLength, setResultLength] = useState(0); // if we want to show whole data we'll use resultLength
-  const [result, setResult] = useState<props[]>([]); // to store the objects in the format which we want
-  const [contactLength, setContactLength] = useState(0); // to set the contact at time of input
-  const [realContactLength, setRealContactLength] = useState(0); // to show the contact length which we want
+  const [result, setResult] = useState<props[]>([]);
+  const [contactLength, setContactLength] = useState(0);
+  const api_url = `https://randomuser.me/api/?results=${contactLength}`;
+
   const handleChange = (e: any) => {
     setContactLength(e.target.value);
   };
 
   let elem: JSX.Element[] = [];
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setResult(data.results);
-        setResultLength(data.results.length);
-      });
-  }, []);
+  async function getapi(url: any) {
+    const response = await fetch(url);
 
-  function handleSubmit() {
-    setRealContactLength(contactLength);
+    var data = await response.json();
+
+    if (response) {
+      setResult(data.results);
+    }
+    x(data);
   }
-
-  for (let i = 0; i < realContactLength; i++) {
+  function handleSubmit() {
+    getapi(api_url);
+  }
+  function x(data: any) {
+    setResult(data.results);
+  }
+  for (let r of result) {
     let fullName = "";
     let profileImgae = "";
-    fullName =
-      result[i].name.title +
-      " " +
-      result[i].name.first +
-      " " +
-      result[i].name.last;
-    profileImgae = result[i].picture.medium;
+    fullName = r.name.title + " " + r.name.first + " " + r.name.last;
+    profileImgae = r.picture.medium;
 
     elem.push(
       <RectangualarCard
         name={fullName}
-        email={result[i].email}
+        email={r.email}
         profileImg={profileImgae}
       />
     );
@@ -68,9 +65,21 @@ export default function InputComponent() {
 
       <div className="uiarea">
         <div className="headerText">Contacts</div>
+
         <div className="cardUi">
           <div
-            style={{ height: "465px", overflow: "scroll", margin: "0px 15px 25px 10px" }}
+            style={{
+              height: "1px",
+              overflow: "hidden",
+              margin: "0px 15px 25px 10px",
+            }}
+          ></div>
+          <div
+            style={{
+              height: "440px",
+              overflow: "scroll",
+              margin: "0px 15px 25px 10px",
+            }}
           >
             {elem}
           </div>
